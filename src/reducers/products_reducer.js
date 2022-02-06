@@ -23,7 +23,6 @@ const products_reducer = (state, action) => {
       const featured_products = action.payload.filter(
          item => item.featured === true
       );
-      console.log(featured_products);
 
       return {
          ...state,
