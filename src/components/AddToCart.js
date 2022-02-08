@@ -6,6 +6,7 @@ import { useCartContext } from '../context/cart_context';
 import AmountButtons from './AmountButtons';
 
 const AddToCart = ({ product }) => {
+   const { addToCart } = useCartContext();
    const { id, stock, colors } = product;
    const [mainColor, setMainColor] = useState(colors[0]);
    const [amount, setAmount] = useState(1);
@@ -63,14 +64,29 @@ const AddToCart = ({ product }) => {
                decrease={decrease}
             />
 
-            <Link to="/cart" className="btn">
+            <Link
+               to="/cart"
+               className="btn"
+               onClick={() => addToCart(id, mainColor, amount, product)}
+            >
                add to cart
             </Link>
          </div>
       </Wrapper>
    );
 };
-
+// category: "living room"
+// colors: ['#000']
+// company: "liddy"
+// description: "Cloud ... live-edge"
+// id: "recQ0fMd8T0Vk211E"
+// images: (5) [{…}, {…}, {…}, {…}, {…}]
+// name: "modern poster"
+// price: 3099
+// reviews: 100
+// shipping: true
+// stars: 2.2
+// stock: 10
 const Wrapper = styled.section`
    margin-top: 2rem;
    .colors {
