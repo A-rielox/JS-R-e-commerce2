@@ -79,13 +79,10 @@ const filter_reducer = (state, action) => {
    }
 
    if (action.type === FILTER_PRODUCTS) {
-      console.log('filtering products');
-
       const { all_products } = state;
       const { text, company, category, color, price, shipping } = state.filters;
 
       let tempProducts = [...all_products];
-      console.log(all_products);
 
       // ====================== FILTERING ======================
       //text
